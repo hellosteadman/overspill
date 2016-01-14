@@ -1,0 +1,5 @@
+---
+- name: Upload shortcut file for executing Python functions within the environment
+  template: src=run dest={{ virtualenv }}run mode=775
+  tags:
+  - runserver

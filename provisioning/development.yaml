@@ -1,0 +1,17 @@
+---
+- hosts: db
+  sudo: yes
+  roles:
+      - database
+
+- hosts: web
+  sudo: yes
+  roles:
+      - app
+      - runserver
+
+- hosts: workers
+  sudo: yes
+  roles:
+      - app
+      - celery

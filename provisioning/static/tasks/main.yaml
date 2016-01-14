@@ -1,0 +1,15 @@
+---
+- name: Create media directory
+  sudo: yes
+  file: path={{ media }} state=directory owner={{ dbuser }} mode=0775
+
+- name: Create static directory
+  sudo: yes
+  file: path={{ static }} state=directory owner={{ dbuser }} mode=0775
+
+- name: Collect static files
+  sudo: yes
+  sudo_user: '{{ dbuser }}'
+  command: '{{ virtualenv }}exec {{ item }}'
+  with_items:
+    - collectstatic --noinput --verbosity=0

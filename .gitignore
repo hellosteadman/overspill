@@ -57,3 +57,10 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Vagrant files
+.vagrant
+
+# Static and media files
+/media/
+/static/

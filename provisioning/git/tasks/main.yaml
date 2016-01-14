@@ -1,0 +1,15 @@
+---
+
+- name: Checkout project
+  sudo_user: '{{ dbuser }}'
+  git: repo='{{ repo_url }}'
+       version=master
+       dest='{{ virtualenv }}'
+       accept_hostkey=yes
+  tags:
+      - git
+  notify:
+      - restart memcached
+      - restart gunicorn
+      - restart celerybeat
+      - restart celeryd

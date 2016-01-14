@@ -1,0 +1,28 @@
+[all:vars]
+dbname=overspill
+dbuser=vagrant
+dbpassword=6sm2ygTA8twP0FVH
+dbhost=192.168.60.100
+dbport=
+
+virtualenv=/home/vagrant/
+project=/vagrant/
+media=/vagrant/media/
+static=/vagrant/static/
+domain=192.168.60.100:8000
+requirements=/vagrant/requirements/development.txt
+key=q5CEPVweGYOPjv
+debug=true
+accept_hostkey=no
+
+wsgi_path=/vagrant/overspill/config/wsgi.py
+django_settings=overspill.settings.local
+
+[web]
+web1 ansible_ssh_host=192.168.60.100
+
+[db]
+db1 ansible_ssh_host=192.168.60.110
+
+[workers]
+worker1 ansible_ssh_host=192.168.60.120

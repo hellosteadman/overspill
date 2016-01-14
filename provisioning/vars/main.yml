@@ -1,0 +1,2 @@
+repo_url: 'git@github.com:iamsteadman/overspill.git'
+wsgi_path: {{ project }}overspill/config/wsgi.py

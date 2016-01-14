@@ -1,0 +1,9 @@
+---
+
+- include: dependencies.yaml
+
+- name: Upload shortcut file for executing Python functions within the environment
+  template: src=exec dest={{ virtualenv }}exec mode=755
+
+- include: database.yaml
+  sudo: yes

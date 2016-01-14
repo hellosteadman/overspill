@@ -1,0 +1,13 @@
+#!/bin/bash
+source {{ virtualenv }}bin/activate
+export DATABASE_NAME={{ dbname }}
+export DATABASE_USER={{ dbuser }}
+export DATABASE_PASSWORD={{ dbpassword }}
+export DATABASE_HOST={{ dbhost }}
+export DATABASE_PORT={{ dbport }}
+export STATIC_ROOT={{ static }}
+export MEDIA_ROOT={{ media }}
+export SECRET_KEY="{{ key }}"
+export DOMAIN="{{ domain }}"
+export DEBUG=True
+python {{ project }}manage.py runserver 0.0.0.0:8000 --settings={{ django_settings }}

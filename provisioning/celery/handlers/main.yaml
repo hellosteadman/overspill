@@ -1,0 +1,7 @@
+---
+
+- name: restart celerybeat
+  service: name=celerybeat state=restarted
+
+- name: restart celeryd
+  service: name=celeryd state=restarted
