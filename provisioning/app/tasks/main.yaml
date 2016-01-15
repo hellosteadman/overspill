@@ -9,6 +9,8 @@
     - build-essential
     - g++
     - git
+    - libjpeg-dev
+    - libpng-dev
     - libpq-dev
     - memcached
     - python-dev
