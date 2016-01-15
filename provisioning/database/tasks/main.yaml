@@ -1,4 +1,5 @@
 ---
+
 - name: Install PostgreSQL
   apt: pkg={{ item }}
        state=present
@@ -9,6 +10,16 @@
     - postgresql
     - postgresql-contrib
     - python-psycopg2
+
+- name: Update postgres client configuration
+  template: src={{ item }} dest=/etc/postgresql/9.1/main/{{ item }}
+  with_items:
+      - pg_hba.conf
+      - postgresql.conf
+
+- name: Restart PostgreSQL
+  sudo: yes
+  service: name=postgresql state=restarted
 
 - name: Create database
   sudo: yes
@@ -27,8 +38,3 @@
                    password='{{ dbpassword }}'
                    priv='CONNECT/ALL'
                    state=present
-
-- name: Update postgres client configuration
-  template: src=pg_hba.conf dest=/etc/postgresql/9.1/main/pg_hba.conf
-  notify:
-    - restart postgresql

@@ -1,9 +1,33 @@
 ---
 
-- include: dependencies.yaml
+- name: Update Aptitude cache
+  apt: update_cache=yes
+
+- name: Install dependency packages
+  apt: pkg={{ item }} state=present
+  with_items:
+    - build-essential
+    - g++
+    - git
+    - libpq-dev
+    - memcached
+    - python-dev
+    - python-psycopg2
+    - python-virtualenv
+    - redis-server
+
+- name: Install pip
+  easy_install: name=pip
+
+- name: Install Python requirements
+  pip: requirements='{{ requirements }}'
+       virtualenv='{{ virtualenv }}'
+       chdir='{{ virtualenv }}'
+  tags: update
 
 - name: Upload shortcut file for executing Python functions within the environment
   template: src=exec dest={{ virtualenv }}exec mode=755
 
-- include: database.yaml
-  sudo: yes
+- name: Migrate
+  command: '{{ virtualenv }}exec migrate --noinput'
+  tags: update

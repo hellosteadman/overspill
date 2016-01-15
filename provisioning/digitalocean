@@ -2,7 +2,6 @@
 dbname=overspill
 dbuser=overspill
 dbpassword=6sm2ygTA8twP0FVH
-dbhost=192.168.60.100
 dbport=
 
 virtualenv=/opt/env/overspill/

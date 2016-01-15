@@ -1,5 +1,0 @@
----
-
-- name: Migrate
-  command: '{{ virtualenv }}exec migrate --noinput'
-  tags: update
