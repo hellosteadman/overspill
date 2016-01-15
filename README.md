@@ -14,4 +14,8 @@ To run the site locally:
 
 To run the site remotely:
 
-TODO: I'm working on a `cloud-config` setup for DigitalOcean
+1. Create 3 DigitalOcean droplets: one for web, one for the database, and one for the worker
+2. Copy `provisioning/digitalocean.sample` to `provisioning/digitalocean`
+3. Replace the IP addresses with the ones you setup in step 1
+
+More instructions coming

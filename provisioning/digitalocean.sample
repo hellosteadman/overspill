@@ -1,0 +1,24 @@
+[all:vars]
+dbname=overspill
+dbuser=overspill
+dbpassword=lMODHPjuW6hBZZ
+dbport=5432
+
+virtualenv=/opt/env/overspill/
+project=/opt/env/overspill/
+media=/opt/media/overspill/media/
+static=/opt/media/overspill/static/
+domain=overspill.io
+requirements=/opt/env/overspill/requirements.txt
+key=*7c+wj0a+9@z)cqk8ps7ci_sr*r%s!+=3dr@%bnjknxx8l%50f
+wsgi_path=/opt/env/overspill/overspill/wsgi.py
+django_settings=overspill.settings.production
+
+[web]
+web1 ansible_ssh_host=20.30.40.50
+
+[db]
+db1 ansible_ssh_host=30.40.50.60
+
+[workers]
+worker1 ansible_ssh_host=40.50.60.70

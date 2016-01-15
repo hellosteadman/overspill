@@ -9,6 +9,5 @@ export STATIC_ROOT={{ static }}
 export MEDIA_ROOT={{ media }}
 export SECRET_KEY="{{ key }}"
 export DOMAIN={{ domain }}
-export DEBUG={{ debug }}
 export DOMAIN={{ domain }}
 python {{ project }}manage.py $@ --settings={{ django_settings }}

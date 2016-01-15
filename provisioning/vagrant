@@ -2,7 +2,7 @@
 dbname=overspill
 dbuser=vagrant
 dbpassword=6sm2ygTA8twP0FVH
-dbport=
+dbport=5432
 
 virtualenv=/home/vagrant/
 project=/vagrant/
@@ -11,7 +11,6 @@ static=/vagrant/static/
 domain=192.168.60.100:8000
 requirements=/vagrant/requirements/development.txt
 key=q5CEPVweGYOPjv
-debug=true
 accept_hostkey=no
 
 wsgi_path=/vagrant/overspill/config/wsgi.py
