@@ -1,17 +1,18 @@
 ---
+
 - hosts: db
-  sudo: yes
+  become: yes
   roles:
       - database
 
 - hosts: web
-  sudo: yes
+  become: yes
   roles:
       - app
       - runserver
 
 - hosts: workers
-  sudo: yes
+  become: yes
   roles:
       - app
       - celery

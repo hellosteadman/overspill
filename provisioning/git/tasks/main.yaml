@@ -1,7 +1,7 @@
 ---
 
 - name: Checkout project
-  sudo_user: '{{ dbuser }}'
+  become_user: '{{ dbuser }}'
   git: repo='{{ repo_url }}'
        version=master
        dest='{{ virtualenv }}'

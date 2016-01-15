@@ -1,12 +1,12 @@
 ---
 
 - hosts: db
-  sudo: yes
+  become: yes
   roles:
       - database
 
 - hosts: web
-  sudo: yes
+  become: yes
   roles:
       - git
       - app
