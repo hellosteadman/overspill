@@ -1,5 +1,4 @@
 from __future__ import absolute_import
-from os import path
 from django.db import models
 from django.contrib.auth.models import User
 from . import EVENT_STATES, EVENT_STATE_CHOICES, helpers
