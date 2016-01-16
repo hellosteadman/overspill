@@ -33,7 +33,7 @@ def set_slide_image_url(slide, filename):
     """
 
     return u'events/%d/talks/slides/%d_%d%s' % (
-        slide.event.pk,
+        slide.talk.event.pk,
         slide.talk.pk,
         slide.number,
         path.splitext(filename)[-1]
@@ -49,7 +49,7 @@ def set_slide_audio_url(slide, filename):
     """
 
     return u'events/%d/talks/slides/%d_%d%s' % (
-        slide.event.pk,
+        slide.talk.event.pk,
         slide.talk.pk,
         slide.number,
         path.splitext(filename)[-1]
