@@ -65,6 +65,9 @@ class Slide(models.Model):
                              upload_to=helpers.set_slide_audio_url
                              )
 
+    def __unicode__(self):
+        return u'Slide %d' % self.number
+
     def save(self, *args, **kwargs):
         if self.number is None:
             self.number = self.talk.slides.count() + 1
@@ -85,6 +88,9 @@ class Link(models.Model):
     url = models.URLField(max_length=255)
     title = models.CharField(max_length=200)
     order = models.PositiveIntegerField()
+
+    def __unicode__(self):
+        return self.title
 
     class Meta:
         ordering = ('order',)
