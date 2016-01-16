@@ -55,7 +55,7 @@ class Slide(models.Model):
     """
 
     talk = models.ForeignKey(Talk, related_name='slides')
-    number = models.PositiveIntegerField()
+    number = models.PositiveIntegerField(blank=True)
     image = models.ImageField(max_length=255,
                               upload_to=helpers.set_slide_image_url
                               )
@@ -64,6 +64,12 @@ class Slide(models.Model):
     audio = models.FileField(max_length=255, blank=True,
                              upload_to=helpers.set_slide_audio_url
                              )
+
+    def save(self, *args, **kwargs):
+        if self.number is None:
+            self.number = self.talk.slides.count() + 1
+
+        super(Slide, self).save(*args, **kwargs)
 
     class Meta:
         unique_together = ('number', 'talk')
