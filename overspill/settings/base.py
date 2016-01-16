@@ -36,7 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'overspill.talks'
+    'overspill.talks',
+    'djcelery'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -99,3 +100,17 @@ TIME_ZONE = 'Europe/London'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
+
+BROKER_URL = 'redis://%s:%d/%d' % (
+    os.getenv('REDIS_HOST'),
+    os.getenv('REDIS_PORT', 6379),
+    os.getenv('REDIS_INDEX', 0)
+)
+
+CELERY_RESULT_BACKEND = 'redis://%s:%d/%d' % (
+    os.getenv('REDIS_HOST'),
+    os.getenv('REDIS_PORT', 6379),
+    os.getenv('REDIS_INDEX', 0)
+)
+
+CELERY_ACCEPT_CONTENT = ['json']

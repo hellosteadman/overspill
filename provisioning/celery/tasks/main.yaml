@@ -1,5 +1,15 @@
 ---
 
+- name: Install Redis
+  apt: pkg=redis-server state=present
+
+- name: Open Redis to web servers
+  template: src=redis.conf dest=/etc/redis/redis.conf
+  notify: restart redis
+
+- name: Create a Celery user
+  user: name=celery state=present system=yes
+
 - name: Upload celerybeat startup script
   copy: src='celerybeat' dest='/etc/init.d/celerybeat' mode=0744
   notify: restart celerybeat

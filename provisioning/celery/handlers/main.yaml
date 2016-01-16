@@ -5,3 +5,6 @@
 
 - name: restart celeryd
   service: name=celeryd state=restarted
+
+- name: restart redis
+  service: name=redis-server state=restarted
