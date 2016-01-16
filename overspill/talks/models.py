@@ -32,7 +32,7 @@ class Talk(models.Model):
 
     event = models.ForeignKey(Event, related_name='talks')
     title = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=30, unique=True)
+    slug = models.SlugField(max_length=30)
     creator = models.ForeignKey(User)
     speaker_name = models.CharField(max_length=100, blank=True)
     slideshow = models.FileField(max_length=255,
