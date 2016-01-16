@@ -1,0 +1,3 @@
+#!/bin/bash
+vagrant ssh web1 -c "cd /vagrant && ~/cover_tests $@"
+vagrant ssh web1 -c "cd /vagrant && coverage report"

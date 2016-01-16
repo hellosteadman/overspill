@@ -32,3 +32,7 @@
 - name: Migrate
   command: '{{ virtualenv }}exec migrate --noinput'
   tags: update
+
+- name: Upload shortcut file for performing tests within the environment
+  template: src=cover_tests dest={{ virtualenv }}cover_tests mode=755
+  when: test_web

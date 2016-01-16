@@ -1,0 +1,14 @@
+#!/bin/bash
+source {{ virtualenv }}bin/activate
+export DATABASE_NAME={{ dbname }}
+export DATABASE_USER={{ dbuser }}
+export DATABASE_PASSWORD={{ dbpassword }}
+export DATABASE_HOST={% for host in groups['db'] %}{{ hostvars[host]['ansible_ssh_host'] }}
+{% endfor %}export DATABASE_PORT={{ dbport }}
+export REDIS_HOST={% for host in groups['workers'] %}{{ hostvars[host]['ansible_ssh_host'] }}
+{% endfor %}export STATIC_ROOT={{ static }}
+export MEDIA_ROOT={{ media }}
+export SECRET_KEY="{{ key }}"
+export DOMAIN={{ domain }}
+export DOMAIN={{ domain }}
+coverage run --source='.' {{ project }}manage.py test $@ --settings=overspill.settings.test --keepdb

@@ -25,6 +25,16 @@ This makes it ideal for things like generating schema migrations:
 ./run makemigrations
 ```
 
+Thing is, I suck at Unix, so you can't put more than one argument after `~/run`
+at the moment.
+
+#### Running tests
+
+The development servers are spun up with testing in-place, and there's a
+shortcut function for testing the apps within Overspill. From the project
+directory, just run `./test <app-name>` and the tests should run; you should
+also get a coverage.py report back.
+
 ### To run the site remotely:
 
 1. Create 3 DigitalOcean droplets: one for web, one for the database, and one for the worker

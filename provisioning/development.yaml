@@ -4,12 +4,16 @@
   become: yes
   roles:
       - database
+  vars:
+      test_db: yes
 
 - hosts: web
   become: yes
   roles:
       - app
       - runserver
+  vars:
+      test_web: yes
 
 - hosts: workers
   become: yes
