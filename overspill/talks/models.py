@@ -92,5 +92,11 @@ class Link(models.Model):
     def __unicode__(self):
         return self.title
 
+    def save(self, *args, **kwargs):
+        if self.order is None:
+            self.order = self.talk.links.count() + 1
+
+        super(Link, self).save(*args, **kwargs)
+
     class Meta:
         ordering = ('order',)
