@@ -1,4 +1,3 @@
-from time import time
 from os import path
 
 
@@ -6,6 +5,8 @@ def unique_id():
     """
     Returns a unique ID (a hex representation of the current UNIX timestamp)
     """
+
+    from time import time
     return hex(int(time() * 10000000))[2:]
 
 
