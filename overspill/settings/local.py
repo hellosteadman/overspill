@@ -6,7 +6,7 @@ from .base import *
 DEBUG = True
 ALLOWED_HOSTS = ['*']
 STATIC_ROOT = os.getenv('STATIC_ROOT')
-MEDIA_ROOT = os.getenv('STATIC_ROOT')
+MEDIA_ROOT = os.getenv('MEDIA_ROOT')
 STATIC_URL = '/static/'
 
 CELERY_REDIRECT_STDOUTS = False
