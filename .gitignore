@@ -65,5 +65,6 @@ target/
 /media/
 /static/
 
-# Provisioning inventory
+# Provisioning
 /provisioning/digitalocean
+/provisioning/vars/apis/development.yaml.sample
