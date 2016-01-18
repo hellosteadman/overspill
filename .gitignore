@@ -67,4 +67,4 @@ target/
 
 # Provisioning
 /provisioning/digitalocean
-/provisioning/vars/apis/development.yaml.sample
+/provisioning/vars/apis/development.yaml

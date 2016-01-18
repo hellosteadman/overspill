@@ -6,6 +6,8 @@
       - database
   vars:
       test_db: yes
+  vars_files:
+      - vars/apis/development.yaml
 
 - hosts: web
   become: yes
@@ -14,9 +16,13 @@
       - runserver
   vars:
       test_web: yes
+  vars_files:
+      - vars/apis/development.yaml
 
 - hosts: workers
   become: yes
   roles:
       - app
       - celery
+  vars_files:
+      - vars/apis/development.yaml

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'overspill.talks',
     'djcelery'
+    'overspill.cloudconvert'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -114,3 +115,5 @@ CELERY_RESULT_BACKEND = 'redis://%s:%d/%d' % (
 )
 
 CELERY_ACCEPT_CONTENT = ['json']
+
+CLOUDCONVERT_API_KEY = os.getenv('CLOUDCONVERT_API_KEY')

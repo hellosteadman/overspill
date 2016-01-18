@@ -11,4 +11,5 @@ export MEDIA_ROOT={{ media }}
 export SECRET_KEY="{{ key }}"
 export DOMAIN={{ domain }}
 export DOMAIN={{ domain }}
+export CLOUDCONVERT_API_KEY={{ cloudconvert_api_key }}
 coverage run --source='.' {{ project }}manage.py test $@ --settings=overspill.settings.test --keepdb
